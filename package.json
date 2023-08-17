@@ -1,5 +1,14 @@
 {
   "version": "0.1",
+  "urls": [
+      ["board_led.py", "github:gerbuuun/mip-test/board_led.py"],
+      ["boot.py", "github:gerbuuun/mip-test/boot.py"],
+      ["connection.py", "github:gerbuuun/mip-test/connection.py"],
+      ["encryption.py", "github:gerbuuun/mip-test/encryption.py"],
+      ["main.py", "github:gerbuuun/mip-test/main.py"],
+      ["radar_response.py", "github:gerbuuun/mip-test/radar_response.py"],
+      ["radar_sensor.py", "github:gerbuuun/mip-test/radar_sensor.py"],
+      ["update.py", "github:gerbuuun/mip-test/update.py"],
   "deps": [
     ["urequests", "latest"],
   ],

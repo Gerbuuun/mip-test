@@ -1,11 +1,12 @@
 from machine import UART
+from micropython import const
 import radar_response as r
 import select
 
-MAX_ATTEMPTS = 5
+MAX_ATTEMPTS = const(5)
 
-FRAME_START = b'\x53\x59'
-FRAME_END = b'\x54\x43'
+FRAME_START = const(b'\x53\x59')
+FRAME_END = const(b'\x54\x43')
 
 uart: UART
 model = b''

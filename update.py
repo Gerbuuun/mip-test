@@ -1,6 +1,7 @@
 import urequests
 import hashlib
-import os
+import mip
+import config
 
 def download_firmware():
     firmware_res = urequests.get("http://eya-solutions.com/firmware.bin")
@@ -14,19 +15,9 @@ def download_firmware():
     
     return firmware
 
-def download_script():
-    script_res = urequests.get("http://eya-solutions.com/installer.py")
-    script_hash = urequests.get("http://eya-solutions.com/installer.sha256")
-    script = script_res.content
-    hash = script_hash.content
+def install_modules():
+    try:
+        mip.install(f"http://{config.server_ip}")
+    except Exception as e:
+        print(e)
 
-    test = hashlib.sha256(script).hexdigest()
-    if test != hash:
-        return None
-    
-    return script
-
-def save_script(script, name: str):
-    with open(name, "wb") as f:
-        f.write(script)
-    

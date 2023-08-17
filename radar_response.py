@@ -12,64 +12,66 @@ These functions are based on the data found in the tables from:
 Only a subset of the commands are implemented as the rest are not relevant for this project.
 """
 
-NO_DATA = b'\x0F'
-TURN_ON = b'\x01'
-TURN_OFF = b'\x00'
+from micropython import const
+
+NO_DATA = const(b'\x0F')
+TURN_ON = const(b'\x01')
+TURN_OFF = const(b'\x00')
 
 # Control Words
-SYSTEM_FUNCTIONS = b'\x01'
-PRODUCT_INFO = b'\x02'
-OPERATION_STATUS = b'\x05'
-DETECTION_RANGE = b'\x07'
-UNDERLYING_OPEN_FUNCTION = b'\x08'
-PRESENCE = b'\x80'
-RESPIRATORY = b'\x81'
-SLEEP = b'\x84'
-HEART = b'\x85'
+SYSTEM_FUNCTIONS = const(b'\x01')
+PRODUCT_INFO = const(b'\x02')
+OPERATION_STATUS = const(b'\x05')
+DETECTION_RANGE = const(b'\x07')
+UNDERLYING_OPEN_FUNCTION = const(b'\x08')
+PRESENCE = const(b'\x80')
+RESPIRATORY = const(b'\x81')
+SLEEP = const(b'\x84')
+HEART = const(b'\x85')
 
 # System Functions
-SYSTEM_HEARTBEAT = b'\x80'
-SYSTEM_RESET = b'\x02'
+SYSTEM_HEARTBEAT = const(b'\x80')
+SYSTEM_RESET = const(b'\x02')
 
 # Product Info
-PRODUCT_MODEL = b'\xA1'
-PRODUCT_ID = b'\xA2'
-HARDWARE_MODEL = b'\xA3'
-FIRMWARE_VERSION = b'\xA4'
+PRODUCT_MODEL = const(b'\xA1')
+PRODUCT_ID = const(b'\xA2')
+HARDWARE_MODEL = const(b'\xA3')
+FIRMWARE_VERSION = const(b'\xA4')
 
 # Operation Status
-INITIALIZATION = b'\x81'
+INITIALIZATION = const(b'\x81')
 
 # Detection Range
-OUT_OF_BOUNDS = b'\x87'
+OUT_OF_BOUNDS = const(b'\x87')
 
 # Underlying Open Function
-TOGGLE_UNDERLYING_OPEN_FUNCTION = b'\x00'
+TOGGLE_UNDERLYING_OPEN_FUNCTION = const(b'\x00')
 
 # Presence
-TOGGLE_PRESENCE_MONITORING = b'\x00'
-SET_EXISTENCE_TIME = b'\x0A'
-PRESENCE_STATUS = b'\x80'
-EXISTENCE_STATUS = b'\x81'
-MOVEMENT_STATUS = b'\x82'
-MOVEMENT_ENERGY = b'\x83'
-EXISTENCE_DISTANCE = b'\x84'
+TOGGLE_PRESENCE_MONITORING = const(b'\x00')
+SET_EXISTENCE_TIME = const(b'\x0A')
+PRESENCE_STATUS = const(b'\x80')
+EXISTENCE_STATUS = const(b'\x81')
+MOVEMENT_STATUS = const(b'\x82')
+MOVEMENT_ENERGY = const(b'\x83')
+EXISTENCE_DISTANCE = const(b'\x84')
 
 # Heart
-TOGGLE_HEART_MONITORING = b'\x00'
-HEART_MONITORING_STATUS = b'\x80'
-HEART_RATE = b'\x82'
-HEART_WAVEFORM = b'\x85'
+TOGGLE_HEART_MONITORING = const(b'\x00')
+HEART_MONITORING_STATUS = const(b'\x80')
+HEART_RATE = const(b'\x82')
+HEART_WAVEFORM = const(b'\x85')
 
 # Respiratory
-TOGGLE_RESPIRATORY_MONITORING = b'\x00'
-RESPIRATORY_MONITORING_STATUS = b'\x80'
-RESPIRATORY_SPEED = b'\x81'
-RESPIRATORY_RATE = b'\x82'
-RESPIRATORY_WAVEFORM = b'\x85'
+TOGGLE_RESPIRATORY_MONITORING = const(b'\x00')
+RESPIRATORY_MONITORING_STATUS = const(b'\x80')
+RESPIRATORY_SPEED = const(b'\x81')
+RESPIRATORY_RATE = const(b'\x82')
+RESPIRATORY_WAVEFORM = const(b'\x85')
 
 # Sleep
-TOGGLE_SLEEP_MONITORING = b'\x00'
+TOGGLE_SLEEP_MONITORING = const(b'\x00')
 
 
 def _handle_heart_rate_monitor(command: bytes, data: bytes) -> dict:

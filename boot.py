@@ -8,9 +8,10 @@ If configuration values are not set, the on-board LED will blink indefinitely.
 import config
 import board_led as led
 import network
-import machine
 import ntptime
 import radar_sensor as sensor
+from machine import unique_id
+from ubinascii import hexlify
 
 
 # Check configuration
@@ -26,25 +27,22 @@ if not wlan.isconnected():
     while not wlan.isconnected():
         machine.idle()
 
-# Set time
-# ntptime.settime()
-startup_time = machine.RTC().now()
+# Set time using private host
+#ntptime.host = "www.eyasolutions.com"
+ntptime.settime()
 
 # Initialize sensor
 config.sensor_model = sensor.init()
-config.uc_id = machine.unique_id().decode('UTF-8')
 
 # Generate UUID
-mac1 = config.uc_id.replace(':','')
-mac_num = int(mac1,16)
-
-temp = mac_num  * 10112197115111108117116105111110 # multiplied by 'eyasolution' in ascii number
+temp = hexlify(unique_id())
+temp = int(temp,16)
+temp = temp  * 10112197115111108117116105111110 # multiplied by 'eyasolution' in ascii number
 temp = str(hex(temp)).upper()
 
-uuid = temp[2:].ljust(32,'0')
+uuid = temp[2:] + '0' * max(0, 32 - len(temp[2:])) # ljust is not available in micropython
 uuid = uuid[:12] + '4' + uuid[13:]
 uuid = uuid[:16] + '8' + uuid[17:]
-uuid = uuid
 config.uc_id = uuid[:8] + '-' + uuid[8:12] + '-' + uuid[12:16] + '-' + uuid[16:20] + '-' + uuid[20:32]
 
 sensor_data = {
