@@ -1,15 +1,26 @@
 {
-  "version": "0.1",
+  "version": "1.0",
   "urls": [
-      ["board_led.py", "github:gerbuuun/mip-test/board_led.py"],
-      ["boot.py", "github:gerbuuun/mip-test/boot.py"],
-      ["connection.py", "github:gerbuuun/mip-test/connection.py"],
-      ["encryption.py", "github:gerbuuun/mip-test/encryption.py"],
-      ["main.py", "github:gerbuuun/mip-test/main.py"],
-      ["radar_response.py", "github:gerbuuun/mip-test/radar_response.py"],
-      ["radar_sensor.py", "github:gerbuuun/mip-test/radar_sensor.py"],
-      ["update.py", "github:gerbuuun/mip-test/update.py"],
-  "deps": [
-    ["urequests", "latest"],
+    ["board_led.py", "github:gerbuuun/mip-test/board_led.py"],
+    ["boot.py", "github:gerbuuun/mip-test/boot.py"],
+    ["connection.py", "github:gerbuuun/mip-test/connection.py"],
+    ["encryption.py", "github:gerbuuun/mip-test/encryption.py"],
+    ["main.py", "github:gerbuuun/mip-test/main.py"],
+    ["radar_response.py", "github:gerbuuun/mip-test/radar_response.py"],
+    ["radar_sensor.py", "github:gerbuuun/mip-test/radar_sensor.py"],
+    ["update.py", "github:gerbuuun/mip-test/update.py"]
   ],
+  "hashes": [
+    ["board_led.py", "35dd4903ce7bd344a780217e1352e22d1b6608a1b32e5a407f6dbc39731b38a2"],
+    ["boot.py", "7bb4dca59c6e10bff44780d7307d70abc80d5eaf9abdcbeeaff2ac75168ee76e"],
+    ["connection.py", "b94e15c1d6c3c1b04c8cafb021e14a3363c711af6417f0ccd7a4af83f904d41f"],
+    ["encryption.py", "c49e6408239bd3e9f22e4d833bf826ea5f44075b35c36e00fce94bdc5b298fba"],
+    ["main.py", "37a97bc5cd83c647bfb9d1ab55924174c96de191f8908075ba32f719723d945b"],
+    ["radar_response.py", "a1dc3cf1aa81d2d8309bc7881fc29ead8538802da17ccef4b3c8b6e9e00406c3"],
+    ["radar_sensor.py", "ab2b543390055162340ea58ee496554973a719a3a576aa2a677039f20c1ebd8c"],
+    ["update.py", "67dd2eb26af297f82658f4d7c202bf39af084d062937afa801d47abdf0616be0"]
+  ],
+  "deps": [
+    ["urequests", "latest"]
+  ]
 }
